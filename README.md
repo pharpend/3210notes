@@ -29,6 +29,11 @@ A quick note on the targets:
   in the repository.
 * `make` on its own is equivalent to running `make build && make clean`.
 
+## Contact
+
+You can email me at `peter@harpending.org`, or catch me on FreeNode
+under the nick `pharpend`.
+
 [1]: https://creativecommons.org/licenses/by-sa/4.0/
 [2]: https://en.wikibooks.org/wiki/LaTeX/Installation
 [3]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
