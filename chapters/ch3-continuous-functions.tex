@@ -4,10 +4,72 @@ This chapter governs continuous functions.
 
 \section{Continuity}
 
-Continuous functions are informally described as ``functions whose graph can be
-drawn without lifting up one's writing utensil''.
+\subsection{Intuition and Examples}
 
-The func
+Continuous functions are informally described as ``functions whose graph can be
+drawn without lifting up one's writing utensil''. Here's a couple of examples,
+to give you the intuition.
+
+\answergraph{graphs/continuous-vs-discontinuous.png}
+
+In this example, $f$ is continuous, while $g$ has a singularity at $x =
+0$. Evaluating $g(0) = \frac{1}{0}$ is not possible. If you approach $0$ from
+the left, you can see that $g$ decreases rather rapidly, to $-\infty$. If you
+approach $0$ from the right, you see the opposite, where $g$ increases rapidly
+to $\infty$, but never reaches a value at $x = 0$.
+
+You should already be familiar with the basic notion of continuity, but that
+graph might serve as a reminder.
+
+Note that a function can be defined at every point, but still be
+discontinuous. Here's another silly instance of discontinuity.
+
+\answergraph{graphs/constant-discontinuity.png}
+
+The function $h$ is defined at every point in $\R$ ($g$ is not). However, $h$
+does have a discontinuity at $x = 0$.
+
+Continuity is usually qualified with a domain. The function $f$ from earlier is
+continuous over all of $\R$. $g$, the reciprocal function, is continuous on
+every real number except $0$, or
+
+\begin{equation}
+    \label{eq:r-minus-0}
+    \R \setminus \mset{0}
+\end{equation}
+
+\Cref{eq:r-minus-0} could be written in interval notation, as seen in
+\cref{eq:r-sans-0-interval-notation}.
+
+\begin{equation}
+    \label{eq:r-sans-0-interval-notation}
+    \label{eq:r-sans-0}
+    \mlist{-\infty, 0} \cup \mlist{0, \infty}
+\end{equation}
+
+The function $h$, the bi-constant function with a trivial discontinuity at $x =
+0$, is continuous on $\mlist{\infty,0}$ and on $\mclop{0, 1}$. It would be a
+mistake, however, to say that $h$ is continuous on
+
+\begin{equation}
+    \mlist{\infty, 0} \cup \mclop{0, 1}
+\end{equation}
+
+because 
+
+\begin{equation}
+    \mlist{\infty, 0} \cup \mclop{0, 1} = \R
+\end{equation}
+
+and $h$ is not continuous over all of $\R$.
+
+Note that \cref{eq:r-sans-0} does not have this problem, because
+
+\begin{equation}
+    0 \notin \mlist{-\infty, 0} \cup \mlist{0, \infty}
+\end{equation}
+
+\subsection{The formal definition}
 
 \begin{appendices}
 \end{appendices}
