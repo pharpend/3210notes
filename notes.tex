@@ -1,8 +1,11 @@
 \documentclass[12pt,letterpaper,oneside]{memoir}
 
+% \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[backend=bibtex,date=iso8601]{biblatex}
 \usepackage{color}
 \usepackage{datetime2}
+\usepackage{graphicx}
 \usepackage{listings}
 \usepackage{setspace}
 
@@ -35,12 +38,27 @@
   stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
   % stringstyle=\color{mymauve},     % string literal style
   tabsize=2,                       % sets default tabsize to 2 spaces
-  % title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
-  % caption=\lstname ,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+  title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  caption=\lstname                  % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
 \setlength{\parskip}{1ex}
 \addbibresource{notes.bib}
+\chapterstyle{bianchi}
+\setsecheadstyle{\Large\bfseries\sffamily}
+\setsubsecheadstyle{\large\bfseries\sffamily}
+\setsubsubsecheadstyle{\normalsize\bfseries\sffamily}
+
+\newcommand{\inclgraph}{\includegraphics[width=0.8\textwidth]}
+\newcommand{\answergraph}[1]{\begin{center}\includegraphics[width=0.8\textwidth]{#1}\end{center}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\mset}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\mlist}[1]{\left(\, #1 \,\right)}
+\newcommand{\mbrk}[1]{\left[\, #1 \,\right]}
+\newcommand{\mopcl}[1]{\left(\, #1 \,\right]}
+\newcommand{\mclop}[1]{\left[\, #1 \,\right)}
+
 
 \begin{document}
 \title{Math 3210 Notes}
