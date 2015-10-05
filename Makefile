@@ -5,7 +5,7 @@ clean:
 
 build:
 	mkdir .tex
-	cp notes.tex .tex
+	cp -rv notes.tex notes.bib chapters graphs .tex
 	cd .tex && \
 	  latexmk -pdf notes.tex && \
 	  mv notes.pdf ..
