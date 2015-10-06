@@ -65,7 +65,7 @@ plt.save("seq-two-minus-x.pdf")
 
 plt = plot(
     f(x),
-    xmin=0.8,
+    xmin=0.99,
     xmax=2.01,
     thickness=thck,
     legend_label="$f(x) = x^2 + 2x - 7$",
@@ -86,27 +86,27 @@ plt.fontsize(font_size)
 plt.set_legend_options(**legend_options)
 plt.save('seq-cont-two-minus-x-imposed-f-xn.pdf')
 
-plt = plot(
-    f(x),
-    xmin=1.825,
-    xmax=2.01,
-    thickness=thck,
-    legend_label="$f(x) = x^2 + 2x - 7$",
-    axes_labels=['x','y']
-) + point(
-    [(g(n), 0) for n in range(3, 10)],
-    size=pt_size,
-    color='green',
-    legend_label="$x_n = \sum_{i = 0}^{n} \, 2^{-n}$"
-) + point(
-    [(g(n), f(g(n))) for n in range(3, 10)],
-    size=pt_size,
-    color='red',
-    legend_label="$f(x_n)$"
-)
-plt.fontsize(font_size)
-plt.set_legend_options(**legend_options)
-plt.save('seq-cont-two-minus-x-imposed-f-xn-2.pdf')
+# plt = plot(
+#     f(x),
+#     xmin=1.93,
+#     xmax=2.0005,
+#     thickness=thck,
+#     legend_label="$f(x) = x^2 + 2x - 7$",
+#     axes_labels=['x','y']
+# ) + point(
+#     [(g(n), 0) for n in range(4, 10)],
+#     size=pt_size,
+#     color='green',
+#     legend_label="$x_n = \sum_{i = 0}^{n} \, 2^{-n}$"
+# ) + point(
+#     [(g(n), f(g(n))) for n in range(4, 10)],
+#     size=pt_size,
+#     color='red',
+#     legend_label="$f(x_n)$"
+# )
+# plt.fontsize(font_size)
+# plt.set_legend_options(**legend_options)
+# plt.save('seq-cont-two-minus-x-imposed-f-xn-2.pdf')
 
 
 x = var('x')
