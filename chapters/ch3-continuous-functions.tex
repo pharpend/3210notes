@@ -1,6 +1,10 @@
 \chapter{Continuous functions}
 
-This chapter governs continuous functions.
+This chapter governs continuous functions. The previous chapter discussed
+sequences, which are functions of type $\N \to \R$. This chapter discusses
+functions with real inputs. You intuitively should think of functions of type
+$\R \to \R$. However, as I'll demonstrate in a minute, that doesn't quite work
+all of the time.
 
 \section{Continuity}
 
@@ -10,11 +14,11 @@ Continuous functions are informally described as ``functions whose graph can be
 drawn without lifting up one's writing utensil''. Here's a couple of examples,
 to give you the intuition.
 
-\answergraph{graphs/continuous-vs-discontinuous.png}
+\answergraph{graphs/continuous-vs-discontinuous.pdf}
 
-In this example, $f$ is continuous, while $g$ has a singularity at $x =
-0$. Evaluating $g(0) = \frac{1}{0}$ is not possible. If you approach $0$ from
-the left, you can see that $g$ decreases rather rapidly, to $-\infty$. If you
+In this example, $f$ is continuous, while $g$ has a singularity at $x = 0$.
+Evaluating $g(0) = \frac{1}{0}$ is not possible. If you approach $0$ from the
+left, you can see that $g$ decreases rather rapidly, to $-\infty$. If you
 approach $0$ from the right, you see the opposite, where $g$ increases rapidly
 to $\infty$, but never reaches a value at $x = 0$.
 
@@ -24,7 +28,7 @@ graph might serve as a reminder.
 Note that a function can be defined at every point, but still be
 discontinuous. Here's another silly instance of discontinuity.
 
-\answergraph{graphs/constant-discontinuity.png}
+\answergraph{graphs/constant-discontinuity.pdf}
 
 The function $h$ is defined at every point in $\R$ ($g$ is not). However, $h$
 does have a discontinuity at $x = 0$.
@@ -34,31 +38,30 @@ continuous over all of $\R$. $g$, the reciprocal function, is continuous on
 every real number except $0$, or
 
 \begin{equation}
-    \label{eq:r-minus-0}
-    \R \setminus \mset{0}
+  \label{eq:r-minus-0}
+  \R \setminus \mset{0}
 \end{equation}
 
 \Cref{eq:r-minus-0} could be written in interval notation, as seen in
-\cref{eq:r-sans-0-interval-notation}.
+\cref{eq:r-sans-0}.
 
 \begin{equation}
-    \label{eq:r-sans-0-interval-notation}
-    \label{eq:r-sans-0}
-    \mlist{-\infty, 0} \cup \mlist{0, \infty}
+  \label{eq:r-sans-0}
+  \mlist{-\infty, 0} \cup \mlist{0, \infty}
 \end{equation}
 
-The function $h$, the bi-constant function with a trivial discontinuity at $x =
-0$, is continuous on $\mlist{\infty,0}$ and on $\mclop{0, 1}$. It would be a
-mistake, however, to say that $h$ is continuous on
+The function $h$, the bi-constant function with a trivial discontinuity at
+$x = 0$, is continuous on $\mlist{\infty,0}$ and on $\mclop{0, 1}$. It would be
+a mistake, however, to say that $h$ is continuous on
 
 \begin{equation}
-    \mlist{\infty, 0} \cup \mclop{0, 1}
+  \mlist{\infty, 0} \cup \mclop{0, 1}
 \end{equation}
 
 because 
 
 \begin{equation}
-    \mlist{\infty, 0} \cup \mclop{0, 1} = \R
+  \mlist{\infty, 0} \cup \mclop{0, 1} = \R
 \end{equation}
 
 and $h$ is not continuous over all of $\R$.
@@ -66,10 +69,287 @@ and $h$ is not continuous over all of $\R$.
 Note that \cref{eq:r-sans-0} does not have this problem, because
 
 \begin{equation}
-    0 \notin \mlist{-\infty, 0} \cup \mlist{0, \infty}
+  0 \notin \mlist{-\infty, 0} \cup \mlist{0, \infty}
+\end{equation}
+
+\subsubsection{Natural domains}
+
+Remember at the very beginning of this chapter, when I pointed out above that
+these functions should normally have type $\R \to \R$, but there are some times
+when that doesn't work?
+
+Well, think of $f$. If you don't remember,
+
+\begin{equation}
+  f(x) = \frac{1}{x}
+\end{equation}
+
+We had a point $x = 0$, where $f$ is not defined. Therefore, f's type is not $\R
+\to \R$, because $0 \in \R$, and $f(0)$ is not a thing.
+
+To combat this, the book introduces the concept of a ``natural domain''. That
+term is confusing, because it implies that the domain is $\N$. Anyway\dots\ The
+concept refers to the real numbers where a function is defined.
+
+So, $f$ is defined on every real number except $0$. Therefore, $f$'s natural
+domain is
+
+\begin{equation}
+  \R \setminus \mset{0}
+\end{equation}
+
+That's all the natural domain is. More formally, the natural domain is always a
+subset of $\R$. Let's call the natural domain $D$. We will always have that
+$D \subof \R$. Thus, for any function $j$, we can write its signature as
+
+\begin{equation}
+  j : D \to \R
 \end{equation}
 
 \subsection{The formal definition}
 
-\begin{appendices}
-\end{appendices}
+So, how do we formally define continuity?
+
+The easiest way I can think of is to define continuity at a single point.
+
+A function $f$ is continuous at $x = k$ if
+
+\begin{enumerate}
+\item $f$ is defined at $k$, and
+\item The limit of $f$, as $x$ approaches $k$ from either side is equal to the
+  value at $x = k$.
+\end{enumerate}
+
+Symbolically:
+
+\begin{equation}
+  \lim_{x \to k^-} f(x) =
+  f(k) =
+  \lim_{x \to k^+} f(x)
+\end{equation}
+
+Going back to the ``lifting up your pencil'' analogy, this is to say that if you
+draw the graph of $f$ starting from the left, you should arrive at the same
+point if you start drawing from the right. Moreover, $f$'s value at $x = k$ is
+the value you get when approaching either side.
+
+\begin{exercise}
+  Verify that this test correctly identifies continuity in each of the functions
+  in the previous section.
+\end{exercise}
+
+This sounds great, right? So easy!
+
+Well, actually, no. This definition is problematic, because we have not defined
+the concept of a limit with a real domain yet. We have examined sequences, which
+are just fancy functions with the type $\N \to \R$. We have not defined limits
+where the domain is $\R$ (or a subset of $\R$ that isn't also a subset of $\N$).
+
+The book puts off defining limits with real domains, and instead uses the
+popular $\epsilon$-$\delta$ definition.
+
+The book's definition defines continuity at a point. Continuity over an interval
+is therefore defined as continuity at every point in the interval. The basic
+notion is that you look at some point, and look immediately to the left and
+right of it. If you have values on both sides, you are golden. If you don't,
+well\dots\ you aren't.
+
+Here's the formal definition, given in the book at Definition 3.1.1, page 60.
+
+\begin{definition}[Continuity at a point]
+  Let $f$ be a function with a domain $D \subof \R$. Let $a \in D$. The function
+  $f$ is continuous at $a$ if for every $\epsilon \in \R^{>0}$, we can pick some
+  $\delta \in \R^{>0}$ such that
+
+  \begin{equation}
+    \label{eq:contdef}
+    \abs{x - a} < \delta \implies \abs{f(x) - f(a)} < \epsilon
+  \end{equation}
+
+  (provided $x \in D$).
+\end{definition}
+
+That definition is a bit hard to parse. Let's break it down.
+
+\begin{enumerate}
+\item Pick some value $k \in D$, and evaluate $f(k)$
+\item Pick any $\epsilon \in \R^{>0}$
+\item Using that $\epsilon$, pick another number $\delta \in \R^{>0}$ such that
+  if some value $x \in D$ is very close to $k$ ($x$ is within $\delta$ of $k$),
+  then $f(x)$ is within $\epsilon$ of $f(k)$.
+\end{enumerate}
+
+\begin{example}
+  As an example, let's look at that old function $h$.
+
+  \answergraph{graphs/constant-discontinuity.pdf}
+
+  \begin{description}
+  \item[A continuous point] If you pick $x = 2$, you can look at the graph and
+    determine that $h$ is continuous at $x = 2$. Let's try to use our definition
+    to verify that.
+
+    \begin{enumerate}
+    \item Pick some value $k \in D$. Okay, we did that, $k = 2$.
+    \item Pick any $\epsilon \in \R^{>0}$. Cool. Let's pick $\epsilon =
+      0.1$. $\epsilon$ can really be anything, but this is an example.
+    \item Let's pick some $\delta \in \R^{>0}$ such that if $x$ is
+      $\delta$-close to $2$, then $h(x)$ is within $\epsilon = 0.1$ of $1$.
+    \end{enumerate}
+
+    If you pick $\delta = 0.1$, then you can verify yourself that this
+    definition gives a verdict of ``continuous''.
+
+    \paragraph{Potential counterexample}
+
+    If you pick $\delta = 3$, we'll have $\eva{h}{-\frac{1}{2}} = 0$ within
+    $\delta$ of $2$, but $\eva{h}{-\frac{1}{2}}$ is \xtb{not} within
+    $\epsilon = 0.1$ of $\eva{h}{2} = 1$!
+
+    You might be tempted to say that because we have some $\delta$ where this
+    property doesn't hold, then $h$ is therefore not continuous at $x = 2$.
+    However, the definition states that there is \xtb{some} $\delta$ where this
+    property holds. The definition does not say that this property holds for
+    \xtb{all} possible values of $\delta$.
+        
+  \item[The discontinuity] We can see quite clearly from the graph that $h$ has
+    a discontinuity at $x = 0$. Does this definition yield a verdict of
+    ``discontinuous'' at $x = 0$?
+
+    Again, let's go through the steps.
+
+    \begin{enumerate}
+    \item Pick some value $k \in D$. Okay, we did that, $k = 0$.
+    \item Pick any $\epsilon \in \R^{>0}$. Cool. Let's pick $\epsilon =
+      0.1$. $\epsilon$ can really be anything, but this is an example.
+
+      Already, we have a problem, because we don't have that nearby values of
+      $f$ are within $0.1$ of $f$. The next part of this definition will
+      formally catch that. Note that the definition \xtb{does} require that we
+      can perform this check for all possible values of $\epsilon$.
+
+    \item Let's pick some $\delta \in \R^{>0}$ such that if $x$ is
+      $\delta$-close to $0$, then $h(x)$ is within $\epsilon = 0.1$ of
+      $1$. Well, there's no positive $\delta$ where, if $-\delta < q < 0$, then
+      $\eva{f}{q}$ is $\epsilon$-close to $f(0) = 1$.
+
+      For instance, if $\delta = 0.2$, we could have $\eva{f}{-0.1} = 0$, which
+      is not within $\epsilon$ of $1$.
+    \end{enumerate}
+
+    So we have that $f$ is discontinous at $x = 0$. Yay, the definition worked
+    in this example!
+  \end{description}
+\end{example}
+
+\begin{exercise}
+  Show that $\eva{f}{x} = \frac{1}{x}$ is discontinuous at $x = 0$, and
+  continuous elsewhere.
+\end{exercise}
+\begin{exercise}
+  Show that $\eva{f}{x} = x^2$ is discontinuous at $x = 2$.
+\end{exercise}
+
+\subsection{Alternate characterization of continuity}
+
+This section gives an alternate ``characterization'' of continuity. This new
+characterization uses sequences, which will eventually allow us to use our
+theorems about sequences.
+
+\begin{theorem}[Theorem 3.1.6 in textbook]
+  \label{thm:cont-sequence}
+  Suppose $\mlist{x_n}$ is a sequence with a codomain of $D$, and let it
+  converge to some $a \in D$. $f$ be a function where $D$ is its domain. $f$ is
+  continuous at $a$ iff the sequence $\mlist{\eva{f}{x_n}}$ converges to
+  $\eva{f}{a}$.
+\end{theorem}
+
+This is essentially saying that if we can pick some sequence of numbers in the
+domain, and that sequence converges to a number, then $f$ applied to that
+sequence should converge to $f(a)$. The claim is that this is both a sufficient
+and necessary condition for continuity. That is, this property is equivalent to
+continuity at a point.
+
+\begin{proof}[Proof of \cref{thm:cont-sequence}]
+  There are actually two propositions to prove here.
+
+  \begin{enumerate}
+  \item Continuity implies the property about convergent sequences. (The ``only
+    if'' part).
+  \item The property about convergent sequences implies continuity. (The ``if''
+    part).
+  \end{enumerate}
+
+  \begin{description}
+  \item[Proof of the ``only if'' part] We are to prove the convergence property
+    using the definition of continuity. That is, we have that for all
+    $\epsilon > 0$, there is some $\delta > 0$ such that
+
+    \begin{equation}
+      \abs{x - a} < \delta \implies \abs{f(x) - f(a)} < \epsilon
+    \end{equation}
+
+    provided that $a, x \in D$. (This is just the definition of continuity).
+
+    Let's create a sequence $\mlist{x_n} \subof D$ such that $x_n \leadsto a$.
+    The definition of the limit then gives us that for every $m \in \N$, there
+    is some $\psi$ such that $\abs{x_n - a} < \psi$ if
+    $n > m$.\footnote{Typically, the definition uses $\epsilon$ instead of
+      $\psi$, but we're already using $\epsilon$ for something else.} We can
+    choose $\psi$ arbitrarily, so let's choose $\psi = \delta$.
+
+    Therefore there is some $m \in \N$ such that $\abs{x_n - a} < \delta$
+    whenever $n > m$.
+
+    We can apply $f$ to each of the $x_n$s. Remember that a sequence $x_n$ is
+    just a function of type $\N \to \R$, or in this case $\N \to D$. The
+    function $f$ is of type $D \to \R$, so this idea of ``applying $f$ to the
+    sequence'' is actually just function composition. The result is a sequence
+    $\eva{f}{x_n}$, which is again just a function of type $\N \to \R$.
+
+    Composing $\mlist{x_n}$ with $f$, we get
+
+    \begin{equation}
+      \abs{\eva{f}{x_n} - \eva{f}{a}} < \epsilon \text{ whenever } n > m
+    \end{equation}
+
+    Thus, $\eva{f}{x_n} \leadsto \eva{f}{a}$. QED. \qed
+  \item[Proof of the ``if'' part] This is proved using the contrapositive. That
+    is, if $f$ is not continuous, then our sequence $\mlist{x_n}$ converges to
+    $a$, \xtb{but} $\mlist{\eva{f}{x_n}} \centernot\leadsto \eva{f}{a}$.
+
+    If $f$ is not continuous at $a$, that means, for some $\epsilon$ (the
+    $y$-interval), there isn't a corresponding $\delta$ ($x$-interval) where
+
+    \begin{equation}
+      \label{eq:contdef}
+      \abs{x - a} < \delta \implies \abs{f(x) - f(a)} < \epsilon
+    \end{equation}
+
+    holds. That is, for some $\epsilon > 0$, for every single $\delta > 0$, we'd
+    have that there is some $x \in D$ such that
+
+    \begin{equation}
+      \abs{x - a} < \delta \text{ but } \abs{\eva{f}{x} - \eva{f}{a}} \ge \epsilon
+    \end{equation}
+
+    In more informal terms, $x$ is $\delta$-close to $a$, but $\eva{f}{x}$ is
+    not $\epsilon$-close to $y$.
+
+    For each $x_n$, let's choose $\delta = \frac{1}{n}$. So, we'll now have
+
+    \begin{equation}
+      \abs{x_n - a} < \delta \text{ but } \abs{\eva{f}{x_n} - \eva{f}{a}} \ge \epsilon
+    \end{equation}
+
+    We have that $\frac{1}{n} \leadsto 0$, so therefore that $x_n \leadsto a$.
+    But, we also have that $\eva{f}{x_n} \centernot\leadsto \eva{f}{a}$. QED.
+  \end{description}
+\end{proof}
+
+That proof was likely a bit shaky, especially the last part. Let's go through a
+couple of examples.
+
+\begin{example}
+  Let's Examine
+\end{example}
