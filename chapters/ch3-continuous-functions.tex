@@ -351,5 +351,45 @@ That proof was likely a bit shaky, especially the last part. Let's go through a
 couple of examples.
 
 \begin{example}
-  Let's Examine
+  Let's examine the function
+
+  \begin{equation}
+    \eva{f}{x} = x^2 + 2x - 7
+  \end{equation}
+
+  \answergraph{graphs/sequence-continuity.pdf}
+
+  Let's agree right off the bat that $f$ is continuous over all of $\R$. You
+  don't have to prove it, but just agree that it's the case. In this example,
+  we're going to use the fact that $f$ is continuous at $x = 2$, and then
+  conclude that
+
+  \begin{enumerate}
+  \item There is some sequence $\mlist{x_n} \leadsto 2$
+  \item The sequence $\mlist{\eva{f}{x_n}} \leadsto \eva{f}{2}$
+  \end{enumerate}
+
+  The first part is easy: come up with a sequence that converges to $2$. The
+  well-known sequence
+
+  \begin{equation}
+    x_n = \sum_{i = 0}^n 2^{-i}
+  \end{equation}
+
+  converges to $2$. I won't prove it, you can if you want to. Essentially, it
+  starts at $2^0 = 1$, then you add $2^{-1} = \frac{1}{2}$, then $\frac{1}{4}$,
+  then $\frac{1}{8}$, and on and on. Every successive $x_{n+1}$ is half the
+  distance between $2$ and $x_n$.
+
+  \answergraph{graphs/seq-two-minus-x.pdf}
+
+  Let's plot $x_n$ on the other graph.
+
+  \answergraph{graphs/seq-cont-two-minus-x-imposed-f-xn.pdf}
+
+  Hopefully, this demonstrates that $\mset{\eva{f}{x_n}} \leadsto
+  \eva{f}{2}$. On the off chance that it doesn't, let's zoom in some more
+
+  \answergraph{graphs/seq-cont-two-minus-x-imposed-f-xn-2.pdf}
+  
 \end{example}
