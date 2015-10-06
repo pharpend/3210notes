@@ -66,7 +66,7 @@ plt.save("seq-two-minus-x.pdf")
 plt = plot(
     f(x),
     xmin=0.8,
-    xmax=2.2,
+    xmax=2.01,
     thickness=thck,
     legend_label="$f(x) = x^2 + 2x - 7$",
     axes_labels=['x','y']
