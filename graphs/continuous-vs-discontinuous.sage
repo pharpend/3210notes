@@ -13,7 +13,7 @@ plt_g_2 = plot(g(x), xmin=0.01, xmax=5, color='red',thickness=3)
 plt_g = plt_g_1 + plt_g_2
 
 plt = plt_f + plt_g
-plt.save("continuous-vs-discontinuous.png")
+plt.save("continuous-vs-discontinuous.pdf")
 
 plt_h_1 = plot(
     lambda x: 0,
@@ -44,4 +44,4 @@ plt_h_4 = circle(
 )
 
 plt_ = plt_h_1 + plt_h_2 + plt_h_3 + plt_h_4
-plt_.save("constant-discontinuity.png")
+plt_.save("constant-discontinuity.pdf")
