@@ -13,4 +13,4 @@ build:
 
 plots:
 	cd graphs && \
-	  sage *.sage
+	  ./buildgraphs.sh
